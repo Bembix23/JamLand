@@ -1,9 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 /* eslint-disable */
 
 @Component({
-  selector: 'jam-land-nx-welcome',
+  selector: 'app-nx-welcome',
+  standalone: true,
+  imports: [CommonModule],
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "jamland-b588c"
+  },
+  "targets": {
+    "jamland-b588c": {
+      "hosting": {
+        "app": [
+          "jamland-b588c"
+        ]
+      }
+    }
+  }
+}
