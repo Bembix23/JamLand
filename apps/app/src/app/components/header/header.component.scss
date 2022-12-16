@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+
+  .placeholder {
+    flex-grow: 2;
+  }
+
+  .title {
+    cursor: pointer;
+  }
+}

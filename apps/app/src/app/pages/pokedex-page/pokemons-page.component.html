@@ -1,0 +1,10 @@
+<div *ngIf="model$ | async; let model">
+  <app-pokemons-page-header></app-pokemons-page-header>
+
+  <app-pokemons-list (favorite)="setFavoritePokemon($event)" [pokemons]="model.pokemons"></app-pokemons-list>
+
+  <div *ngIf="favoritePokemon">
+    <h2>Ton pokemon favori</h2>
+    <div>{{favoritePokemon}}</div>
+  </div>
+</div>
