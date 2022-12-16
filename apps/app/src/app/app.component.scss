@@ -6,12 +6,17 @@
   align-items: center;
 }
 
+
+
 :host(.app) {
   display: flex;
   flex-direction: column;
   height: 100%;
-
   main {
     flex-grow: 2;
+    background-color: #5F021F ;
+    opacity: 50%;
+    color: white;
   }
+
 }
