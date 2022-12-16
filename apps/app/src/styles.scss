@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
+body { margin: 0; background: #5F021F80;}
+
+// @font-face {
+//     font-family: 'Inter-Light';
+//     src: url('..src/assets/Inter-Regular.ttf');
+// }
+html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+p{
+    font-size: 15px;
+    color: white;
+}
+h2{
+    font-size: 20px;
+    color: white;
+}
