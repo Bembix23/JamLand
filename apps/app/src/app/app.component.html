@@ -1,3 +1,9 @@
-<div class="centered">
-    <button mat-raised-button color="primary">Click </button>
-</div>
+<header>
+  <app-header></app-header>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <app-footer [version]="version"></app-footer>
+</footer>

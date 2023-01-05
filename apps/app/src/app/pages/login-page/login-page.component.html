@@ -1,0 +1,36 @@
+<div class="login-page">
+  <h2>{{'login.title' | translate }}</h2>
+
+  <div class="login-form">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+          <div>
+            <mat-form-field>
+              <mat-label>{{'login.form.loginLabel' | translate}}</mat-label>
+              <input matInput formControlName="login">
+              <mat-error *ngIf="login?.errors?.['email']">Login must be an email</mat-error>
+              <mat-error *ngIf="login?.errors?.['required']">Login is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password">
+              <mat-error>Password is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="buttonDiv">
+            <button mat-raised-button color="primary" type="submit"
+                    [disabled]="!loginForm.valid">Login</button>
+            <button mat-raised-button color="accent" color="primary" (click)="goToRegister()">
+            Register</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  {{getLoginLabel()}}
+  {{'login.hello' | translate:{name:login?.value || ''} }}
+</div>
