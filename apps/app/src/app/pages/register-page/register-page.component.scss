@@ -1,4 +1,4 @@
-.login-form {
+.register-form {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -17,7 +17,6 @@
     button {
     border: solid;
     border-width: 2px;
-    margin: 5px;
     }
     button:enabled {
       background-color: brown;

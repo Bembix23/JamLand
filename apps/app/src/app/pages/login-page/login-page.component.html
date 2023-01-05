@@ -23,6 +23,8 @@
           <div class="buttonDiv">
             <button mat-raised-button color="primary" type="submit"
                     [disabled]="!loginForm.valid">Login</button>
+            <button mat-raised-button color="accent" color="primary" (click)="goToRegister()">
+            Register</button>
           </div>
         </form>
       </mat-card-content>
@@ -31,5 +33,4 @@
 
   {{getLoginLabel()}}
   {{'login.hello' | translate:{name:login?.value || ''} }}
-
 </div>

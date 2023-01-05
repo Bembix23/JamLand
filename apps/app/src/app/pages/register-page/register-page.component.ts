@@ -11,10 +11,9 @@ import {
 } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../services/auth.service';
-import { Router, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-register-page',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,38 +22,32 @@ import { Router, RouterModule } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule,
     TranslateModule,
-    RouterModule,
   ],
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss'],
+  templateUrl: './register-page.component.html',
+  styleUrls: ['./register-page.component.scss'],
 })
-export class LoginPageComponent {
-  loginForm = this.formBuilder.group({
-    login: new FormControl<string>('', [Validators.required, Validators.email]),
+export class RegisterPageComponent {
+  registerForm = this.formBuilder.group({
+    register: new FormControl<string>('', [Validators.required, Validators.email]),
     password: new FormControl<string>('', Validators.required),
   });
 
-  get login() {
-    return this.loginForm.get('login');
+  get register() {
+    return this.registerForm.get('register');
   }
 
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly translateService: TranslateService,
-    private readonly auth: AuthService,
-    private readonly router: Router,
+    private readonly auth: AuthService
   ) {}
 
-  doLogin() {
-    const { login, password } = this.loginForm.value;
-    this.auth.signIn(login || '', password || '');
+  doRegister() {
+    const { register, password } = this.registerForm.value;
+    this.auth.register(register || '', password || '');
   }
 
-  getLoginLabel(): string {
-    return this.translateService.instant('login.form.loginLabel');
-  }
-
-  goToRegister() {
-    this.router.navigateByUrl('/register');
+  getRegisterLabel(): string {
+    return this.translateService.instant('register.form.registerLabel');
   }
 }
