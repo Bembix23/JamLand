@@ -1,5 +1,5 @@
 <div class="login-page">
-  <h2>Login</h2>
+  <h2>{{'login.title' | translate }}</h2>
 
   <div class="login-form">
     <mat-card>
@@ -7,7 +7,7 @@
         <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
           <div>
             <mat-form-field>
-              <mat-label>Login</mat-label>
+              <mat-label>{{'login.form.loginLabel' | translate}}</mat-label>
               <input matInput formControlName="login">
               <mat-error *ngIf="login?.errors?.['email']">Login must be an email</mat-error>
               <mat-error *ngIf="login?.errors?.['required']">Login is required</mat-error>
@@ -28,4 +28,8 @@
       </mat-card-content>
     </mat-card>
   </div>
+
+  {{getLoginLabel()}}
+  {{'login.hello' | translate:{name:login?.value || ''} }}
+
 </div>

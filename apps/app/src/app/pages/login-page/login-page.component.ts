@@ -9,6 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-page',
@@ -19,10 +20,12 @@ import {
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
+    TranslateModule,
   ],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
 })
+
 export class LoginPageComponent {
   loginForm = this.formBuilder.group({
     login: new FormControl<string>('', [Validators.required, Validators.email]),
@@ -33,9 +36,16 @@ export class LoginPageComponent {
     return this.loginForm.get('login');
   }
 
-  constructor(private readonly formBuilder: FormBuilder) {}
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly translateService: TranslateService
+  ) {}
 
   doLogin() {
     console.log(this.loginForm.value);
+  }
+
+  getLoginLabel(): string {
+    return this.translateService.instant('login.form.loginLabel');
   }
 }

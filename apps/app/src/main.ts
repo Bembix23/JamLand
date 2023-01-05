@@ -14,12 +14,14 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { provideHttpClient } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
     provideHttpClient(),
     importProvidersFrom(
+      TranslateModule.forRoot(),
       BrowserAnimationsModule,
       ServiceWorkerModule.register('ngsw-worker.js', {
         enabled: !isDevMode(),
