@@ -12,7 +12,9 @@
   grid-row-gap: 0px;
   border: solid;
   border-width: 2px;
-  
+  bottom:0;  /* on le colle en bas */
+  width:100%;
+ 
   .logo1 {
     grid-area: 1 / 1 / 2 / 2;
     display: flex;
