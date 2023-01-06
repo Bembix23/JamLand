@@ -8,7 +8,6 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 export const appRoutes: Route[] = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
-  { path: '', component: HomePageComponent },
-  { path: 'pokedex', component: PokemonsPageComponent },
+  { path: '', component: PokemonsPageComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
