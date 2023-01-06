@@ -10,5 +10,6 @@ export const appRoutes: Route[] = [
   { path: 'register', component: RegisterPageComponent },
   { path: '', component: HomePageComponent },
   { path: 'pokedex', component: PokemonsPageComponent },
+  //{ path: 'hunt', component: HuntPageComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];

@@ -1,0 +1,34 @@
+<div class="register-page">
+  <h2>{{'register.title' | translate }}</h2>
+
+  <div class="register-form">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="doRegister()">
+          <div>
+            <mat-form-field>
+              <mat-label>{{'register.form.registerLabel' | translate}}</mat-label>
+              <input matInput formControlName="register">
+              <mat-error *ngIf="register?.errors?.['email']">Register must be an email</mat-error>
+              <mat-error *ngIf="register?.errors?.['required']">Register is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password">
+              <mat-error>Password is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="buttonDiv">
+            <button mat-raised-button color="primary" type="submit"
+                    [disabled]="!registerForm.valid">Register</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  {{getRegisterLabel()}}
+  {{'register.hello' | translate:{name:register?.value || ''} }}
+</div>
