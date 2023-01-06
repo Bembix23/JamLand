@@ -21,13 +21,16 @@ export class PokemonsService {
 
   getPokemonsList(): Observable<PokemonPageModel> {
     return this.httpService
-      .get<GetPokemonsApiResponse>('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0', {
-        headers: { Accept: 'application/json' },
-      })
+      .get<GetPokemonsApiResponse>(
+        'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',
+        {
+          headers: { Accept: 'application/json' },
+        }
+      )
       .pipe(
         map((response) => ({
           pokemons: response.results.map((p) => ({
-            id: p.id,
+            id: p.name,
             pun: p.name,
           })),
         }))
@@ -36,13 +39,16 @@ export class PokemonsService {
 
   getPokemons(): Observable<Pokemon[]> {
     return this.httpService
-      .get<GetPokemonsApiResponse>('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0', {
-        headers: { Accept: 'application/json' },
-      })
+      .get<GetPokemonsApiResponse>(
+        'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',
+        {
+          headers: { Accept: 'application/json' },
+        }
+      )
       .pipe(
         map((response) =>
           response.results.map((p) => ({
-            id: p.id,
+            id: p.name,
             pun: p.name,
           }))
         )

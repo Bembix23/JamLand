@@ -1,1 +1,3 @@
-<app-favorites-list> </app-favorites-list>
+<app-favorites-list
+  [favorites]="(favorites$ | async) || []"
+></app-favorites-list>
