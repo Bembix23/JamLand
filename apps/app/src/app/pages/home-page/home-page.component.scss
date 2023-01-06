@@ -1,26 +1,38 @@
-.login-form {
+.home-div {
   display: flex;
   justify-content: center;
-  flex-direction: row;
   margin-left: 20%;
   margin-right: 20%;
-  mat-card {
-    background: none;
-    border-radius: 20px;
-    border: solid;
-    border-color: black;
-    border-width: 2px;
-  }
   .buttonDiv {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     button {
-    border: solid;
-    border-width: 2px;
-    margin: 5px;
-    }
-    button:enabled {
+      border: solid;
+      border-width: 2px;
+      margin: 15px;
+      border-radius: 25px;
       background-color: brown;
+      font-size: x-large;
+      height: 50px;
     }
   }
+}
+
+.div-poke-img{
+  max-width: 100px;
+}
+
+.first-line-poke{
+  display: flex;
+  justify-content: center;
+}
+
+.second-line-poke{
+  display: flex;
+  justify-content: space-around;
+}
+
+.poke-img{
+  width: 100%;
 }

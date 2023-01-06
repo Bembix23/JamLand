@@ -28,7 +28,7 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class homePageComponent {
+export class HomePageComponent {
   homeForm = this.formBuilder.group({
     home: new FormControl<string>('', [Validators.required, Validators.email]),
     password: new FormControl<string>('', Validators.required),
@@ -46,7 +46,7 @@ export class homePageComponent {
     this.router.navigateByUrl('/register');
   }
 
-  goTologin() {
+  goToLogin() {
     this.router.navigateByUrl('/login');
   }
 }

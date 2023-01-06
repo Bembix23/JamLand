@@ -5,4 +5,7 @@ export const fr = {
       loginLabel: 'Identifiant',
     },
   },
+  home: {
+    title: 'Bienvenue',
+  },
 };
