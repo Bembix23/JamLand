@@ -8,5 +8,6 @@ export const appRoutes: Route[] = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: '', component: PokemonsPageComponent },
+  { path: 'hunt', component: HuntPageComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
