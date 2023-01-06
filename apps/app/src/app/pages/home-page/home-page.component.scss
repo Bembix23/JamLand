@@ -10,11 +10,11 @@
     button {
       border: solid;
       border-width: 2px;
-      margin: 15px;
+      margin: 5px;
       border-radius: 25px;
       background-color: brown;
-      font-size: x-large;
-      height: 50px;
+      font-size: large;
+      height: 35px;
     }
   }
 }
@@ -30,7 +30,7 @@
 
 .second-line-poke{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .poke-img{
