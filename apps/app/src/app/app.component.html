@@ -1,4 +1,9 @@
-<div class="centered">
-    <button mat-raised-button color="primary">Login</button>
-    <button mat-raised-button color="primary">Sign Up</button>
-</div>
+<header>
+  <app-header></app-header>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <app-footer [version]="version"></app-footer>
+</footer>
