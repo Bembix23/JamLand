@@ -25,18 +25,34 @@
 
 .div-poke-img{
   max-width: 100px;
+  animation-delay: 10s;
 }
 
 .first-line-poke{
   display: flex;
   justify-content: center;
+  @media (max-width: 320px){
+    img{
+    width: 75%;
+    }
+  }
 }
 
 .second-line-poke{
   display: flex;
   justify-content: space-evenly;
+  @media (max-width: 320px){
+    img{
+    width: 75%;
+    }
+  }
 }
 
 .poke-img{
   width: 100%;
+  @media (max-width: 320px){
+    img{
+    width: 75%;
+    }
+  }
 }
