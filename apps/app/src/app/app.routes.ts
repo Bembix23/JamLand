@@ -4,6 +4,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
+import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 
 export const appRoutes: Route[] = [
   { path: 'login', component: LoginPageComponent },
@@ -11,5 +12,6 @@ export const appRoutes: Route[] = [
   { path: '', component: HomePageComponent },
   { path: 'pokedex', component: PokemonsPageComponent },
   //{ path: 'hunt', component: HuntPageComponent },
+  { path: 'favorites', component: FavoritesPageComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
