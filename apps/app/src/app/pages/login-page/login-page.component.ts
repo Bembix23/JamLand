@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {
   FormBuilder,
   FormControl,
@@ -21,6 +22,7 @@ import { Router, RouterModule } from '@angular/router';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     TranslateModule,
     RouterModule,

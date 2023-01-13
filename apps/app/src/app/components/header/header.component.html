@@ -14,5 +14,6 @@
         Logout
       </button>
     </div>
+    <div *ngIf="(isLoggedIn$ | async)" class="logout-button"><button mat-raised-button color="accent" (click)="goToProfil()">Profil</button></div>
   </div>
 </mat-toolbar>

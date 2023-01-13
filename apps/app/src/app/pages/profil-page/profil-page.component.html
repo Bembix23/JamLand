@@ -1,20 +1,33 @@
-<div class="register-page">
-  <h2>{{ 'register.title' | translate }}</h2>
+<div class="profil-page">
+  <h2>{{ 'profil.title' | translate }}</h2>
 
-  <div class="register-form">
+  <!-- <div class="profil-card">
     <mat-card>
       <mat-card-content>
-        <form [formGroup]="registerForm" (ngSubmit)="doRegister()">
+        <h4>Name {{infoUser?.bio}}</h4>
+        <h4>Bio {{infoUser?.bio}}</h4>
+        <h4>mail {{infoUser?.bio}}</h4>
+        <h4>Allow Trading {{infoUser?.bio}}</h4>
+        <h4>Allow other to view activity {{infoUser?.bio}}</h4>
+        <button mat-raised-button (click)="getInfo()">Info</button>
+      </mat-card-content>
+    </mat-card>
+  </div> -->
+
+  <div class="profil-card">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="profilForm" (ngSubmit)="doProfil()">
           <div>
             <mat-form-field>
               <mat-label>{{
-                'register.form.registerLabel' | translate
+                'profil.form.emailLabel' | translate
               }}</mat-label>
-              <input matInput formControlName="register" />
-              <mat-error *ngIf="register?.errors?.['email']"
+              <input matInput formControlName="email" />
+              <mat-error *ngIf="profil?.errors?.['email']"
                 >Register must be an email</mat-error
               >
-              <mat-error *ngIf="register?.errors?.['required']"
+              <mat-error *ngIf="profil?.errors?.['required']"
                 >Register is required</mat-error
               >
             </mat-form-field>
@@ -29,7 +42,7 @@
           <div>
             <mat-form-field>
               <mat-label>Bio</mat-label>
-              <input matInput formControlName="bio" />
+              <input matInput formControlName="bio" /> 
               <mat-error>Bio is required</mat-error>
             </mat-form-field>
           </div>
@@ -62,16 +75,13 @@
               mat-raised-button
               color="primary"
               type="submit"
-              [disabled]="!registerForm.valid"
+              [disabled]="!profilForm.valid"
             >
-              Register
+              Profil
             </button>
           </div>
         </form>
       </mat-card-content>
     </mat-card>
   </div>
-
-  {{ getRegisterLabel() }}
-  {{ 'register.hello' | translate : { name: register?.value || '' } }}
 </div>
