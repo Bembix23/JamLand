@@ -1,0 +1,58 @@
+.home-page{
+  padding-top: 5%;
+}
+
+.home-div {
+  display: flex;
+  justify-content: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  .buttonDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    button {
+      border: solid;
+      border-width: 2px;
+      margin: 5px;
+      border-radius: 25px;
+      background-color: brown;
+      font-size: large;
+      height: 35px;
+    }
+  }
+}
+
+.div-poke-img{
+  max-width: 100px;
+  animation-delay: 10s;
+}
+
+.first-line-poke{
+  display: flex;
+  justify-content: center;
+  @media (max-width: 320px){
+    img{
+    width: 75%;
+    }
+  }
+}
+
+.second-line-poke{
+  display: flex;
+  justify-content: space-evenly;
+  @media (max-width: 320px){
+    img{
+    width: 75%;
+    }
+  }
+}
+
+.poke-img{
+  width: 100%;
+  @media (max-width: 320px){
+    img{
+    width: 75%;
+    }
+  }
+}
