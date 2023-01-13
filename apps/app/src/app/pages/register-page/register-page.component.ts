@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 import {
   FormBuilder,
   FormControl,
@@ -20,6 +22,7 @@ import { AuthService } from '../../services/auth.service';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     TranslateModule,
   ],
@@ -30,6 +33,11 @@ export class RegisterPageComponent {
   registerForm = this.formBuilder.group({
     register: new FormControl<string>('', [Validators.required, Validators.email]),
     password: new FormControl<string>('', Validators.required),
+    bio: new FormControl<string>('', Validators.required),
+    name: new FormControl<string>('', Validators.required),
+    firstname: new FormControl<string>('', Validators.required),
+    trading: new FormControl<boolean>(false),
+    viewOther: new FormControl<boolean>(false),
   });
 
   get register() {
@@ -43,8 +51,16 @@ export class RegisterPageComponent {
   ) {}
 
   doRegister() {
-    const { register, password } = this.registerForm.value;
-    this.auth.register(register || '', password || '');
+    const { register, password, bio, name, firstname, trading, viewOther } = this.registerForm.value;
+    this.auth.register(
+      register || '',
+      password || '',
+      bio || '',
+      name || '',
+      firstname || '',
+      trading || false,
+      viewOther || false,
+      );
   }
 
   getRegisterLabel(): string {

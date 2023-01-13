@@ -1,0 +1,25 @@
+.profil-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-left: 20%;
+  margin-right: 20%;
+  mat-card {
+    background: none;
+    border-radius: 20px;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+  }
+  .buttonDiv {
+    display: flex;
+    justify-content: center;
+    button {
+    border: solid;
+    border-width: 2px;
+    }
+    button:enabled {
+      background-color: brown;
+    }
+  }
+}
