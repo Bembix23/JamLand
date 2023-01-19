@@ -3,15 +3,17 @@
   color: white;
   display: flex;
   box-sizing: border-box;
-  padding: 0 16px;
+  // padding: 0 16px;
   width: 100%;
   flex-direction: row;
-  align-items: center;
-  white-space: nowrap;
+  // align-items: center;
+  // white-space: nowrap;
   justify-content: center;
 }
 .header {
   display: flex;
+  // flex-direction: column;
+  // text-align: center;
 
   .placeholder {
     flex-grow: 2;

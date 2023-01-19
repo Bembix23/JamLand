@@ -1,10 +1,35 @@
 <div *ngIf="model$ | async; let model">
   <app-pokemons-page-header></app-pokemons-page-header>
 
-  <app-pokemons-list (favorite)="setFavoritePokemon($event)" [pokemons]="model.pokemons"></app-pokemons-list>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Number</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Number"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <app-pokemons-list
+    (favorite)="setFavoritePokemon($event)"
+    [pokemons]="model.pokemons"
+  ></app-pokemons-list>
 
   <div *ngIf="favoritePokemon">
     <h2>Ton pokemon favori</h2>
-    <div>{{favoritePokemon}}</div>
+    <div>{{ favoritePokemon }}</div>
   </div>
 </div>
