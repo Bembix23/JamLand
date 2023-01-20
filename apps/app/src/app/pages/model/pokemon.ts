@@ -1,4 +1,4 @@
 export interface Pokemon {
   id: string;
-  pun: string;
+  name: string;
 }

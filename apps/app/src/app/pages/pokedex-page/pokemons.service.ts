@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { PokemonPageModel } from './model/pokemon-page-model';
 
 interface ApiPokemon {
+  image: any;
+  apiTypes: any;
   id: string;
   name: string;
 }
@@ -21,37 +23,19 @@ export class PokemonsService {
 
   getPokemonsList(): Observable<PokemonPageModel> {
     return this.httpService
-      .get<GetPokemonsApiResponse>(
-        'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',
-        {
-          headers: { Accept: 'application/json' },
-        }
-      )
+      .get<ApiPokemon[]>(
+        'https://pokebuildapi.fr/api/v1/pokemon/limit/100', {
+        headers: { Accept: 'application/json' },
+      })
       .pipe(
         map((response) => ({
-          pokemons: response.results.map((p) => ({
-            id: p.name,
-            pun: p.name,
+          pokemons: response.map((p) => ({
+            id: p.id,
+            name: p.name,
+            image_url: p.image,
+            types: p.apiTypes.map((t: { image: any }) => t.image),
           })),
         }))
-      );
-  }
-
-  getPokemons(): Observable<Pokemon[]> {
-    return this.httpService
-      .get<GetPokemonsApiResponse>(
-        'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',
-        {
-          headers: { Accept: 'application/json' },
-        }
-      )
-      .pipe(
-        map((response) =>
-          response.results.map((p) => ({
-            id: p.name,
-            pun: p.name,
-          }))
-        )
       );
   }
 }
