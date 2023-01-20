@@ -1,9 +1,7 @@
-<div *ngIf="model$ | async; let model">
+<div *ngIf="model$ | async; let model" class="container">
   <app-pokemons-page-header></app-pokemons-page-header>
 
-  <div class="container my-5">
     <app-pokemons-list (favorite)="setFavoritePokemon($event)" [pokemons]="model.pokemons" class="row"></app-pokemons-list>
-  </div>
 
   <div *ngIf="favoritePokemon">
     <h2>Ton pokemon favori</h2>

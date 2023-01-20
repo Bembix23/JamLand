@@ -11,10 +11,10 @@
 :host(.app) {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  background-color: rgba(95, 2, 31, 0.5);
   main {
     flex-grow: 2;
-    background-color: rgba(95, 2, 31, 0.5);
     margin:0;
     padding:0;
     height:100%;
