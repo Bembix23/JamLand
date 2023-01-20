@@ -1,6 +1,22 @@
-.pokemon-detail {
-  padding: 2rem;
-  display: flex;
-  align-content: stretch;
-  justify-content: space-between;
+.avatar {
+  position: relative;
+
+  background-color: white;
+}
+
+.overflow-x-hidden{
+  overflow-x: hidden;
+}
+
+.overflow-y-hidden{
+  overflow-y: hidden;
+}
+
+.sq-2 {
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
 }
