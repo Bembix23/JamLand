@@ -1,4 +1,12 @@
-<div class="pokemon-detail" *ngIf="pokemon">
-  <div>{{pokemon.name}}</div>
-  <mat-icon (click)="setFavorite()">favorite_outline</mat-icon>
+<div class="col">
+  <div class="pokemon-detail" *ngIf="pokemon">
+    <div class="avatar rounded-circle shadow-sm mx-auto overflow-x-hidden overflow-y-hidden sq-2">
+      <img src="../../../../assets/Images/pokedex.svg" alt="" class="h-100">
+    </div>
+    <div class="d-flex justify-content-center">
+      <div>{{pokemon.name}}</div>
+      <mat-icon (click)="setFavorite()">favorite_outline</mat-icon>
+    </div>
+  </div>
 </div>
+

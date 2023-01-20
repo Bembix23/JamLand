@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,4 +12,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 })
 export class FooterComponent {
   @Input() version = '';
+  constructor(private readonly router: Router) {}
+
+  goToProfil() {
+    this.router.navigateByUrl('profil');
+  }
+  goToPokedex() {
+    this.router.navigateByUrl('pokedex');
+  }
 }
