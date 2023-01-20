@@ -4,14 +4,14 @@
     <div class="logo1" routerLink="/">
       <img src="../assets/Images/home.svg" alt="logo" />
     </div>
-    <div class="logo2" routerLink="/">
+    <div class="logo2" routerLink="/hunt" (click)="goToHunt()" >
       <img src="../assets/Images/carte.svg" alt="logo" />
     </div>
-    <div class="logo3" routerLink="/">
+    <div class="logo3" routerLink="/pokedex"  (click)="goToPokedex()"  >
       <img src="../assets/Images/pokedex.svg" alt="logo" />
     </div>
-    <div class="logo4" routerLink="/">
-      <img src="../assets/Images/compte.svg" alt="logo" />
+    <div class="logo4" routerLink="/profil">
+      <img src="../assets/Images/compte.svg" alt="logo" (click)="goToProfil()" />
     </div>
   </div>
 </mat-toolbar>

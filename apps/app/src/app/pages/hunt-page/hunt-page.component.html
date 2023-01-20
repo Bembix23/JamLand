@@ -1,0 +1,42 @@
+<div class="hunt-page">
+  <h2>{{'hunt.title' | translate }}</h2>
+
+  <div class="hunt-card">
+    <mat-card>
+      <mat-card-content>
+        <p>{{ this.huntResult }}</p>
+        <p>{{ this.pokemonHunt?.name }}</p>
+        <div *ngIf="!this.pokemonHunt" class="hunt-button">
+          <button *ngIf="this.energieCount?.number" mat-raised-button (click)="hunt()">Hunt</button>
+          <p>{{ this.energieCount.number }} / 10</p>
+          <p *ngIf="this.energieCount.number < 10">{{ this.energieCount.next }}</p>
+        </div>
+        <div *ngIf="this.pokemonHunt" class="pokeball-button">
+          <div>
+            <button *ngIf="this.pokeballCount.pokeball.number > 0" mat-raised-button (click)="pokeball(3, 'pokeball')">pokeball</button>
+            <p>{{ this.pokeballCount.pokeball.number }} / 10</p>
+            <p *ngIf="this.pokeballCount.pokeball.number < 10">{{ this.pokeballCount.pokeball.next }}</p>
+          </div>
+          <div>
+          <button *ngIf="this.pokeballCount.superball.number > 0" mat-raised-button (click)="pokeball(5, 'superball')">superball</button>
+          <p>{{ this.pokeballCount.superball.number }} / 10</p>
+          <p *ngIf="this.pokeballCount.superball.number < 10">{{ this.pokeballCount.superball.next }}</p>
+          </div>
+          <div>
+          <button *ngIf="this.pokeballCount.hyperball.number > 0" mat-raised-button (click)="pokeball(7, 'hyperball')">hyperball</button>
+          <p>{{ this.pokeballCount.hyperball.number }} / 10</p>
+          <p *ngIf="this.pokeballCount.hyperball.number < 10">{{ this.pokeballCount.hyperball.next }}</p>
+          </div>
+          <div>
+          <button *ngIf="this.pokeballCount.masterball.number > 0" mat-raised-button (click)="pokeball(10, 'masterball')">masterball</button>
+          <p>{{ this.pokeballCount.masterball.number }} / 10</p>
+          <p *ngIf="this.pokeballCount.masterball.number < 10">{{ this.pokeballCount.masterball.next }}</p>
+          </div>
+          <div>
+            <button *ngIf="this.energieCount?.number" mat-raised-button (click)="hunt()">Hunt again</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

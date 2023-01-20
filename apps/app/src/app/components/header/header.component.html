@@ -5,13 +5,17 @@
     </div>
     <div class="title" routerLink="/">JamLand</div>
     <div class="title" routerLink="/favorites">Favorites</div>
-    <div class="placeholder">&nbsp;</div>
     <div *ngIf="(isLoggedIn$ | async) === false" class="login-button">
       <button mat-raised-button (click)="goToLogin()">Login</button>
     </div>
     <div *ngIf="isLoggedIn$ | async" class="logout-button">
       <button mat-raised-button color="accent" (click)="logout()">
         Logout
+      </button>
+    </div>
+    <div *ngIf="isLoggedIn$ | async" class="logout-button">
+      <button mat-raised-button color="accent" (click)="goToProfil()">
+        Profil
       </button>
     </div>
   </div>

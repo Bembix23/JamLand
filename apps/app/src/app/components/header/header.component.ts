@@ -24,6 +24,10 @@ export class HeaderComponent {
     this.router.navigateByUrl('login');
   }
 
+  goToProfil() {
+    this.router.navigateByUrl('profil');
+  }
+
   logout() {
     this.auth.signOut();
   }

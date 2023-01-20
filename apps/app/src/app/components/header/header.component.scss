@@ -12,6 +12,8 @@
 }
 .header {
   display: flex;
+  flex-direction: column;
+  text-align: center;
 
   .placeholder {
     flex-grow: 2;

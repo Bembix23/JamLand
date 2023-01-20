@@ -35,6 +35,6 @@ export class PokemonsPageComponent {
   setFavoritePokemon(pokemon: Pokemon) {
     console.log('isFavorite called with', pokemon);
     this.favoritesService.addPokemon(pokemon);
-    this.favoritePokemon = pokemon.pun;
+    this.favoritePokemon = pokemon.name;
   }
 }
