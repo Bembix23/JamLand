@@ -37,7 +37,7 @@ export class ProfilPageComponent {
   profilForm = this.formBuilder.group({
     email: new FormControl<string>('', [Validators.required, Validators.email]),
     password: new FormControl<string>(''),
-    bio: new FormControl<string>("test", Validators.required),
+    bio: new FormControl<string>('test', Validators.required),
     name: new FormControl<string>('', Validators.required),
     firstname: new FormControl<string>('', Validators.required),
     trading: new FormControl<boolean>(false),
@@ -54,30 +54,31 @@ export class ProfilPageComponent {
     private readonly authService: AuthService,
     private readonly auth: Auth
   ) {
-    this.authService.user$.pipe(
-    filter((u) => !!u),
-    map((u) => u?.uid || ''),
-    switchMap((uid) => this.authService.getInfo(uid)),
-    take(1),
-    )
-    .subscribe(u => {
-      this.profilForm.setValue({
-        email: auth.currentUser?.email || '',
-        password: '',
-        bio: u['bio'] || "", 
-        name: u['name'] || "",
-        firstname: u['firstname'] || "",
-        trading: u['trading'] || false,
-        viewOther: u['viewOther'] || false,
-      })
-    })
+    this.authService.user$
+      .pipe(
+        filter((u) => !!u),
+        map((u) => u?.uid || ''),
+        switchMap((uid) => this.authService.getInfo(uid)),
+        take(1)
+      )
+      .subscribe((u) => {
+        this.profilForm.setValue({
+          email: auth.currentUser?.email || '',
+          password: '',
+          bio: u['bio'] || '',
+          name: u['name'] || '',
+          firstname: u['firstname'] || '',
+          trading: u['trading'] || false,
+          viewOther: u['viewOther'] || false,
+        });
+      });
   }
 
-
   doProfil() {
-    console.log('ici')
-    console.log(this.authService.user$)
-    const { email, password, bio, name, firstname, trading, viewOther } = this.profilForm.value;
+    console.log('ici');
+    console.log(this.authService.user$);
+    const { email, password, bio, name, firstname, trading, viewOther } =
+      this.profilForm.value;
     this.authService.updateInfo(
       email || '',
       password || '',
@@ -85,7 +86,8 @@ export class ProfilPageComponent {
       name || '',
       firstname || '',
       trading || false,
-      viewOther || false);
+      viewOther || false
+    );
   }
 
   getProfilLabel(): string {

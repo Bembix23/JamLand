@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { Pokemon } from '../model/pokemon';
 import { PokemonsService } from './pokemons.service';
-import { Observable } from 'rxjs';
 import { PokemonPageModel } from './model/pokemon-page-model';
 import { PokemonsPageHeaderComponent } from './pokemons-page-header/pokemons-page-header.component';
 import { PokemonsListComponent } from './pokemons-list/pokemons-list.component';
 import { FavoritesService } from '../favorites-page/favorites.service';
+import { AuthService } from '../../services/auth.service';
+import { Firestore } from '@angular/fire/firestore';
+import { filter, map, Observable, switchMap } from 'rxjs';
+import { FavoritsPageModel } from './model/favorits-page-models';
 
 @Component({
   selector: 'app-pokemons-page',
@@ -23,18 +26,48 @@ import { FavoritesService } from '../favorites-page/favorites.service';
 })
 export class PokemonsPageComponent {
   model$: Observable<PokemonPageModel>;
+  favorites$: Pokemon[] = [];
   favoritePokemon = '';
 
   constructor(
     private readonly pokemonsServices: PokemonsService,
-    private readonly favoritesService: FavoritesService
+    private readonly favoritesService: FavoritesService,
+    private readonly auth: AuthService
   ) {
     this.model$ = pokemonsServices.getPokemonsList();
+    this.auth.user$
+      .pipe(
+        filter((u) => !!u),
+        map((u) => u?.uid || ''),
+        switchMap((uid) => favoritesService.getFavorites(uid))
+      )
+      .subscribe((f) => {
+        this.favorites$ = f;
+        console.log(f);
+      });
   }
 
   setFavoritePokemon(pokemon: Pokemon) {
     console.log('isFavorite called with', pokemon);
     this.favoritesService.addPokemon(pokemon);
+    this.auth.user$.pipe(
+      filter((u) => !!u),
+      map((u) => u?.uid || ''),
+      switchMap((uid) => this.favoritesService.getFavorites(uid))
+    );
+
+    this.favoritePokemon = pokemon.name;
+  }
+
+  deleteFavoritePokemon(pokemon: Pokemon) {
+    console.log('deleteFavoritePokemon called with', pokemon);
+    this.favoritesService.deletePokemon(pokemon);
+    this.auth.user$.pipe(
+      filter((u) => !!u),
+      map((u) => u?.uid || ''),
+      switchMap((uid) => this.favoritesService.getFavorites(uid))
+    );
+
     this.favoritePokemon = pokemon.name;
   }
 }

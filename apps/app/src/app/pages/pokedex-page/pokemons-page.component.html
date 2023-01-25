@@ -2,11 +2,17 @@
   <app-pokemons-page-header></app-pokemons-page-header>
 
   <div class="container my-5">
-    <app-pokemons-list (favorite)="setFavoritePokemon($event)" [pokemons]="model.pokemons" class="row"></app-pokemons-list>
+    <app-pokemons-list
+      (favorite)="setFavoritePokemon($event)"
+      (removefavorite)="deleteFavoritePokemon($event)"
+      [favorits]="favorites$"
+      [pokemons]="model.pokemons"
+      class="row"
+    ></app-pokemons-list>
   </div>
 
   <div *ngIf="favoritePokemon">
     <h2>Ton pokemon favori</h2>
-    <div>{{favoritePokemon}}</div>
+    <div>{{ favoritePokemon }}</div>
   </div>
 </div>
