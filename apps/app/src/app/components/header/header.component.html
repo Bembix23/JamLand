@@ -4,8 +4,5 @@
       <img src="../assets/Images/Pokemon_logo.svg" alt="logo" />
     </div>
     <div class="title" routerLink="/">JamLand</div>
-    <div *ngIf="(isLoggedIn$ | async) === false" class="login-button">
-      <button mat-raised-button (click)="goToLogin()">Login</button>
-    </div>
   </div>
 </mat-toolbar>
