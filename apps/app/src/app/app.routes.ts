@@ -7,14 +7,15 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HuntPageComponent } from './pages/hunt-page/hunt-page.component';
 
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
+import { Component } from '@angular/core';
 
 export const appRoutes: Route[] = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'profil', component: ProfilPageComponent },
-  { path: '', component: HomePageComponent },
+  { path: 'login', component: HomePageComponent },
   { path: 'pokedex', component: PokemonsPageComponent },
   { path: 'hunt', component: HuntPageComponent },
   { path: 'favorites', component: FavoritesPageComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '/' },
+  { path: '**', pathMatch: 'full', redirectTo: '/pokedex'},
 ];
