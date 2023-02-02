@@ -42,4 +42,8 @@ export class PokemonDetailComponent {
     }
     return cmt;
   }
+
+  PokemonImage(pokemon: any) {
+    return pokemon.image_url;
+  }
 }
