@@ -68,11 +68,11 @@ export class HuntPageComponent {
     )
       .subscribe(u => {
       this.timers = {
-        energie: u['energie'] || 1,
-        pokeball: u['pokeball'] || 1,
-        superball: u['superball'] || 1,
-        hyperball: u['hyperball'] || 1,
-        masterball: u['masterball'] || 1,
+        energie: u?.['energie'] || 1,
+        pokeball: u?.['pokeball'] || 1,
+        superball: u?.['superball'] || 1,
+        hyperball: u?.['hyperball'] || 1,
+        masterball: u?.['masterball'] || 1,
       }
       if (this.timers?.energie) {
         this.updateEnergie(this.timers?.energie)
