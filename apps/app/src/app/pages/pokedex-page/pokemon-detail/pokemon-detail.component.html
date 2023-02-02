@@ -2,8 +2,9 @@
   <div class="pokemon-detail" *ngIf="pokemon">
     <div
       class="avatar rounded-circle shadow-sm mx-auto overflow-x-hidden overflow-y-hidden sq-2"
+      [ngStyle]="{ border: isMine(pokemon) > 0 ? '2px solid red' : '' }"
     >
-      <img src="../../../../assets/Images/pokedex.svg" alt="" class="h-100" />
+      <img [src]=" PokemonImage(pokemon) " alt="" class="h-100" />
     </div>
     <div class="d-flex justify-content-center">
       <div>{{ pokemon.name }}</div>
@@ -13,6 +14,7 @@
       <mat-icon *ngIf="!isFavorit(pokemon)" (click)="setFavorite()"
         >favorite_outline</mat-icon
       >
+      <p *ngIf="isMine(pokemon) > 0">{{ isMine(pokemon) }}</p>
     </div>
   </div>
 </div>
