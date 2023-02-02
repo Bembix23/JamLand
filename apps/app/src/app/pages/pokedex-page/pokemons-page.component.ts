@@ -26,6 +26,7 @@ import { FavoritsPageModel } from './model/favorits-page-models';
 })
 export class PokemonsPageComponent {
   model$: Observable<PokemonPageModel>;
+  myPokemon$: Pokemon[] = [];
   favorites$: Pokemon[] = [];
   favoritePokemon = '';
 
@@ -43,12 +44,20 @@ export class PokemonsPageComponent {
       )
       .subscribe((f) => {
         this.favorites$ = f;
+      });
+    this.auth.user$
+      .pipe(
+        filter((u) => !!u),
+        map((u) => u?.uid || ''),
+        switchMap((uid) => pokemonsServices.getPersonalPokemon(uid))
+      )
+      .subscribe((f) => {
+        this.myPokemon$ = f;
         console.log(f);
       });
   }
 
   setFavoritePokemon(pokemon: Pokemon) {
-    console.log('isFavorite called with', pokemon);
     this.favoritesService.addPokemon(pokemon);
     this.auth.user$.pipe(
       filter((u) => !!u),
@@ -60,7 +69,6 @@ export class PokemonsPageComponent {
   }
 
   deleteFavoritePokemon(pokemon: Pokemon) {
-    console.log('deleteFavoritePokemon called with', pokemon);
     this.favoritesService.deletePokemon(pokemon);
     this.auth.user$.pipe(
       filter((u) => !!u),

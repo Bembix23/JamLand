@@ -80,8 +80,8 @@
               Profil
             </button>
           </div>
-          <div *ngIf="isLoggedIn$ | async" class="logout-button">
-            <button mat-raised-button color="accent" (click)="logout()">
+          <div *ngIf="isLoggedIn$ | async" class="buttonDiv mt-2 d-flex justify-content-center">
+            <button mat-raised-button color="primary" (click)="logout()">
               Logout
             </button>
           </div>
