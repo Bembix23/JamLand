@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { filter, map, switchMap, take } from 'rxjs';
-
+import { Observable } from 'rxjs';
 import {
   FormBuilder,
   FormControl,
@@ -14,7 +15,7 @@ import {
 } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../services/auth.service';
-import { Auth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-profil-page',
@@ -33,7 +34,7 @@ import { Auth } from '@angular/fire/auth';
 })
 export class ProfilPageComponent {
   // infoUser$: Observable<Info>;
-
+  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
   profilForm = this.formBuilder.group({
     email: new FormControl<string>('', [Validators.required, Validators.email]),
     password: new FormControl<string>(''),
@@ -92,5 +93,8 @@ export class ProfilPageComponent {
 
   getProfilLabel(): string {
     return this.translateService.instant('profil.form.profilLabel');
+  }
+  logout() {
+    this.auth.signOut();
   }
 }
