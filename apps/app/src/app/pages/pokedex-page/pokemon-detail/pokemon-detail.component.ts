@@ -13,6 +13,7 @@ import { Pokemon } from '../../model/pokemon';
 export class PokemonDetailComponent {
   @Input() pokemon: Pokemon | null = null;
   @Input() favorits: Pokemon[] = [];
+  @Input() myPokemon: Pokemon[] = [];
 
   @Output() isFavorite = new EventEmitter<Pokemon>();
   @Output() notFavorite = new EventEmitter<Pokemon>();
@@ -27,7 +28,18 @@ export class PokemonDetailComponent {
   }
 
   isFavorit(pokemon: Pokemon) {
-    console.log('isFavorit', this.favorits);
     return this.favorits.filter((fav) => fav.name === pokemon.name).length > 0;
+  }
+
+  isMine(pokemon: Pokemon) {
+    let cmt = 0;
+    for (let index = 0; index < this.myPokemon.length; index++) {
+      const element = this.myPokemon[index];
+      if (element.name === pokemon.name) {
+        cmt++;
+        console.log(pokemon);
+      }
+    }
+    return cmt;
   }
 }

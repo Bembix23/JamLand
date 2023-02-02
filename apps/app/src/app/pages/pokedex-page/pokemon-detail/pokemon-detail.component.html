@@ -13,6 +13,7 @@
       <mat-icon *ngIf="!isFavorit(pokemon)" (click)="setFavorite()"
         >favorite_outline</mat-icon
       >
+      <p *ngIf="isMine(pokemon) > 0">{{ isMine(pokemon) }}</p>
     </div>
   </div>
 </div>

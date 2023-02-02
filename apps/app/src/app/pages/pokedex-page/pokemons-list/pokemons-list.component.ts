@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 export class PokemonsListComponent {
   @Input() pokemons: Pokemon[] = [];
   @Input() favorits: Pokemon[] = [];
+  @Input() myPokemon: Pokemon[] = [];
   @Output() favorite = new EventEmitter<Pokemon>();
   @Output() removefavorite = new EventEmitter<Pokemon>();
 
