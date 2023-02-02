@@ -72,16 +72,19 @@
               Logout
             </button>
           </div>
-          <div>
+          <div class="d-flex justify-content-center">
+            <webcam [width]="500" [height]="500" [trigger]="trigger$" (imageCapture)="handleSnapshot($event)"></webcam>
+          </div>
+          <div class="d-flex justify-content-center">
             <button mat-raised-button color="primary" (click)="takePhoto()">
               Click!
             </button>
-          <webcam [width]="500" [height]="500" [trigger]="trigger$" (imageCapture)="handleSnapshot($event)"></webcam>
           </div>
-          
-<div class="rack-photo-preview" [ngClass]="{ 'preview-hidden': !hasPreview() }">
-  <img alt="A beautiful photo" #filePreview src="#" class="photo-preview" />
-</div>
+          <div class="d-flex justify-content-center mt-4">
+            <div class="rack-photo-preview" [ngClass]="{ 'd-none': !hasPreview() }">
+              <img alt="Votre photo de profil"  #filePreview src="#" class="photo-preview" />
+            </div>
+          </div>
         </form>
       </mat-card-content>
     </mat-card>

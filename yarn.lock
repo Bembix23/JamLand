@@ -9020,6 +9020,13 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"ngx-webcam@^0.4.1":
+  "integrity" "sha512-8WoC8GWHaN5tH+4zO0/gfUigVKg/jX7JShAewpumJIgJXFmlKhSPnPjewNNxv7OTQiOOb+5Mh6lhTo52VLlY9A=="
+  "resolved" "https://registry.npmjs.org/ngx-webcam/-/ngx-webcam-0.4.1.tgz"
+  "version" "0.4.1"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "node-abort-controller@^3.0.1":
   "integrity" "sha512-/ujIVxthRs+7q6hsdjHMaj8hRG9NuWmwrz+JdRwZ14jdFoKSkm+vDsCbF9PLpnSqjaWQJuTmVtcWHNLr+vrOFw=="
   "resolved" "https://registry.npmjs.org/node-abort-controller/-/node-abort-controller-3.0.1.tgz"
