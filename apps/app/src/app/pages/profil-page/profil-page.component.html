@@ -77,7 +77,7 @@
               type="submit"
               [disabled]="!profilForm.valid"
             >
-              Profil
+              Modifier le profil
             </button>
           </div>
           <div *ngIf="isLoggedIn$ | async" class="buttonDiv mt-2 d-flex justify-content-center">
@@ -85,6 +85,16 @@
               Logout
             </button>
           </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="takePhoto()">
+              Click!
+            </button>
+          <webcam [width]="500" [height]="500" [trigger]="trigger$" (imageCapture)="handleSnapshot($event)"></webcam>
+          </div>
+          
+<div class="rack-photo-preview" [ngClass]="{ 'preview-hidden': !hasPreview() }">
+  <img alt="A beautiful photo" #filePreview src="#" class="photo-preview" />
+</div>
         </form>
       </mat-card-content>
     </mat-card>
