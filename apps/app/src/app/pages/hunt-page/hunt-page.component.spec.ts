@@ -1,23 +1,23 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { HuntPageComponent } from './hunt-page.component';
+import { HuntPageComponent } from './hunt-page.component';
 
-// describe('RegisterPageComponent', () => {
-//   let component: HuntPageComponent;
-//   let fixture: ComponentFixture<HuntPageComponent>;
+describe('HuntPageComponent', () => {
+  let component: HuntPageComponent;
+  let fixture: ComponentFixture<HuntPageComponent>;
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       imports: [ HuntPageComponent ]
-//     })
-//     .compileComponents();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ HuntPageComponent ]
+    })
+    .compileComponents();
 
-//     fixture = TestBed.createComponent(HuntPageComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+    fixture = TestBed.createComponent(HuntPageComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
