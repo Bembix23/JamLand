@@ -1,0 +1,10 @@
+<div *ngIf="model$ | async; let model">
+  <app-events-page-header></app-events-page-header>
+
+  <div class="container my-5">
+    <app-events-list
+      [events]="model.events"
+      class="row"
+    ></app-events-list>
+  </div>
+</div>
