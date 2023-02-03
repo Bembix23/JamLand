@@ -1,6 +1,28 @@
 <div *ngIf="model$ | async; let model">
   <app-pokemons-page-header></app-pokemons-page-header>
 
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Number</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Number"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
   <div class="container my-5">
     <app-pokemons-list
       (favorite)="setFavoritePokemon($event)"
@@ -8,6 +30,7 @@
       [favorits]="favorites$"
       [myPokemon]="myPokemon$"
       [pokemons]="model.pokemons"
+      [filteredOptions]="filteredOptions"
       class="row"
     ></app-pokemons-list>
   </div>

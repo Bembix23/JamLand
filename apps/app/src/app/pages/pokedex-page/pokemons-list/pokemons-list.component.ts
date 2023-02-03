@@ -15,6 +15,7 @@ export class PokemonsListComponent {
   @Input() pokemons: Pokemon[] = [];
   @Input() favorits: Pokemon[] = [];
   @Input() myPokemon: Pokemon[] = [];
+  @Input() filteredOptions: Observable<string[]> | undefined;
   @Output() favorite = new EventEmitter<Pokemon>();
   @Output() removefavorite = new EventEmitter<Pokemon>();
 

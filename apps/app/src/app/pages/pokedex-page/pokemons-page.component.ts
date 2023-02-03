@@ -8,9 +8,19 @@ import { PokemonsPageHeaderComponent } from './pokemons-page-header/pokemons-pag
 import { PokemonsListComponent } from './pokemons-list/pokemons-list.component';
 import { FavoritesService } from '../favorites-page/favorites.service';
 import { AuthService } from '../../services/auth.service';
-import { Firestore } from '@angular/fire/firestore';
-import { filter, map, Observable, switchMap } from 'rxjs';
-import { FavoritsPageModel } from './model/favorits-page-models';
+import {
+  filter,
+  map,
+  Observable,
+  startWith,
+  switchMap,
+  combineLatest,
+  of,
+} from 'rxjs';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-pokemons-page',
@@ -20,22 +30,53 @@ import { FavoritsPageModel } from './model/favorits-page-models';
     PokemonDetailComponent,
     PokemonsPageHeaderComponent,
     PokemonsListComponent,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './pokemons-page.component.html',
   styleUrls: ['./pokemons-page.component.scss'],
 })
 export class PokemonsPageComponent {
+  myControl = new FormControl('');
   model$: Observable<PokemonPageModel>;
+  filters$: Observable<string>;
   myPokemon$: Pokemon[] = [];
   favorites$: Pokemon[] = [];
   favoritePokemon = '';
+  options: string[] = [];
+
+  filteredOptions: Observable<string[]> | undefined;
 
   constructor(
     private readonly pokemonsServices: PokemonsService,
     private readonly favoritesService: FavoritesService,
     private readonly auth: AuthService
   ) {
-    this.model$ = pokemonsServices.getPokemonsList();
+    this.filters$ = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map((v) => v || '')
+    );
+    this.model$ = combineLatest([
+      this.pokemonsServices.getPokemonsList(),
+      this.filters$,
+    ]).pipe(
+      map(([pokemonList, filter]) => {
+        // make any calculation
+        this.filteredOptions = of(this.options);
+        pokemonList.pokemons = pokemonList.pokemons.filter((elem) =>
+          elem.name.toLowerCase().includes(filter.toLowerCase())
+        );
+
+        return pokemonList;
+      })
+    );
+
+    this.model$.subscribe((pokemons) => {
+      console.log(`Received ${pokemons.pokemons.length} pokemons`);
+      pokemons.pokemons.forEach((pokemon) => this.options.push(pokemon.name));
+    });
     this.auth.user$
       .pipe(
         filter((u) => !!u),
@@ -53,8 +94,21 @@ export class PokemonsPageComponent {
       )
       .subscribe((f) => {
         this.myPokemon$ = f;
-        console.log(f);
       });
+  }
+
+  _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    this.model$.subscribe((pokemons) => {
+      pokemons.pokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(value.toLowerCase())
+      );
+    });
+
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
   }
 
   setFavoritePokemon(pokemon: Pokemon) {

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Pokemon } from '../../model/pokemon';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -14,6 +15,7 @@ export class PokemonDetailComponent {
   @Input() pokemon: Pokemon | null = null;
   @Input() favorits: Pokemon[] = [];
   @Input() myPokemon: Pokemon[] = [];
+  @Input() filteredOptions: Observable<string[]> | undefined;
 
   @Output() isFavorite = new EventEmitter<Pokemon>();
   @Output() notFavorite = new EventEmitter<Pokemon>();
@@ -37,10 +39,17 @@ export class PokemonDetailComponent {
       const element = this.myPokemon[index];
       if (element.name === pokemon.name) {
         cmt++;
-        console.log(pokemon);
       }
     }
     return cmt;
+  }
+
+  isFiltered(pokemon: Pokemon | null) {
+    if (pokemon)
+      this.filteredOptions?.subscribe((res) => {
+        if (res.includes(pokemon.name)) return true;
+        return false;
+      });
   }
 
   PokemonImage(pokemon: any) {
