@@ -65,6 +65,19 @@ export class HuntService {
     .subscribe(() => {
       console.log('pokemon ajouté')
     });
+    const event = collection(this.firestore, 'event');
+    from(addDoc(event, { name: this.auth?.currentUser?.email, pokemon: name }))
+    .pipe(
+      catchError(() => {
+        this.displayFailedPopup();
+        console.log('send event fail')
+        return NEVER;
+      }),
+      take(1)
+    )
+    .subscribe(() => {
+      console.log('event ajouté')
+    });
   }
 
   getTimers(id: string) {

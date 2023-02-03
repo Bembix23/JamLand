@@ -57,7 +57,15 @@ export class AuthService {
     ) {
     from(createUserWithEmailAndPassword(this.auth, email, password).then(() => {
       const item = doc(this.firestore, `Infos/${this.auth?.currentUser?.uid}`);
-      return setDoc(item, { bio, name, firstname, trading, viewOther })
+      setDoc(item, { bio, name, firstname, trading, viewOther })
+      const timer = doc(this.firestore, `timers/${this.auth?.currentUser?.uid}`);
+      return setDoc(timer, {
+      energie: 1,
+      pokeball: 1,
+      superball: 1,
+      hyperball: 1,
+      masterball: 1,
+    })
     }))
       .pipe(
         catchError(() => {
@@ -69,15 +77,6 @@ export class AuthService {
       .subscribe(() => {
         this.router.navigateByUrl('/');
       });
-      const item = doc(this.firestore, `timers/${this.auth?.currentUser?.uid}`);
-      return setDoc(item, {
-      energie: 1,
-      pokeball: 1,
-      superball: 1,
-      hyperball: 1,
-      masterball: 1,
-    })
-
   }
 
   updateInfo (
