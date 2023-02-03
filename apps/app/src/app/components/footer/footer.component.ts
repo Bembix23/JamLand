@@ -29,4 +29,7 @@ export class FooterComponent {
   goToHunt() {
     this.router.navigateByUrl('hunt');
   }
+  goToEvent() {
+    this.router.navigateByUrl('event');
+  }
 }

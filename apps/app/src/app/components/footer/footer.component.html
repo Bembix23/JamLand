@@ -1,7 +1,7 @@
 <mat-toolbar id="footer" *ngIf="isLoggedIn$ | async">
   <div class="footer">
     <!-- <div class="placeholder">&nbsp;</div> -->
-    <div class="logo1" routerLink="/">
+    <div class="logo1" routerLink="/event" (click)="goToEvent()" >
       <img src="../assets/Images/home.svg" alt="logo" />
     </div>
     <div class="logo2" routerLink="/pokedex" (click)="goToPokedex()" >
