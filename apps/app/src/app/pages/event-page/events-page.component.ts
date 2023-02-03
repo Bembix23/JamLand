@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventDetailComponent } from './event-detail/event-detail.component';
-import { Event } from '../model/event';
 import { EventsService } from './events.service';
-import { Observable } from 'rxjs';
+import { Observable,map  } from 'rxjs';
 import { EventPageModel } from './model/event-page-model';
 import { EventsPageHeaderComponent } from './events-page-header/events-page-header.component';
 import { EventsListComponent } from './events-list/events-list.component';
@@ -25,6 +24,7 @@ export class EventsPageComponent {
   constructor(
     private readonly eventsServices: EventsService,
   ) {
-    this.model$ = eventsServices.getInfo();
+    this.model$ = eventsServices.getInfo().pipe(map(events => ({events})));
+    console.log(this.model$)
   }
 }
