@@ -1,16 +1,27 @@
 export const fr = {
   login: {
     title: 'Connexion',
+    register: 'S\'enregistrer',
+    error: 'obligatoire',
     form: {
       loginLabel: 'Identifiant',
     },
   },
   register: {
+    mdp: 'Mot de passe',
     title: 'S\'enregistrer',
     hello: 'Bonjour',
     logout: 'Déconnexion',
-    name: 'Nom',
+    profilm: 'Mon profil',
     firstname: 'Prénom',
+    error: 'obligatoire',
+    trading: 'Authoriser les échanges',
+    activity: 'Authoriser les autres a voir mon activité',
+    email: 'Email',
+    bio: 'Bio',
+    name: 'Nom',
+    
+    
   },
   home: {
     title: 'Bienvenue',

@@ -8,53 +8,73 @@
           <div>
             <mat-form-field>
               <mat-label>{{
-                'register.form.registerLabel' | translate
+                'register.email' | translate
               }}</mat-label>
               <input matInput formControlName="register" />
               <mat-error *ngIf="register?.errors?.['email']"
-                >Register must be an email</mat-error
+                >{{
+                  'register.error' | translate
+                }}</mat-error
               >
               <mat-error *ngIf="register?.errors?.['required']"
-                >Register is required</mat-error
+                >{{
+                  'register.error' | translate
+                }}</mat-error
               >
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
-              <mat-label>Password</mat-label>
+              <mat-label>{{
+                'register.mdp' | translate
+              }}</mat-label>
               <input matInput type="password" formControlName="password" />
-              <mat-error>Password is required</mat-error>
+              <mat-error> {{
+                'register.error' | translate
+              }}</mat-error>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
-              <mat-label>Bio</mat-label>
+              <mat-label>{{
+                'register.bio' | translate
+              }}</mat-label>
               <input matInput formControlName="bio" />
-              <mat-error>Bio is required</mat-error>
+              <mat-error>{{
+                'register.error' | translate
+              }}</mat-error>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
-              <mat-label>Name</mat-label>
+              <mat-label>{{
+                'register.name' | translate
+              }}</mat-label>
               <input matInput formControlName="name" />
-              <mat-error>Name is required</mat-error>
+              <mat-error>{{
+                'register.error' | translate
+              }}</mat-error>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
-              <mat-label>FirstName</mat-label>
+              <mat-label>{{
+                'register.firstname' | translate
+              }}</mat-label>
               <input matInput formControlName="firstname" />
-              <mat-error>FirstName is required</mat-error>
+              <mat-error>{{
+                'register.error' | translate
+              }}</mat-error>
             </mat-form-field>
           </div>
           <div>
             <mat-slide-toggle formControlName="trading">
-              Allow Trading
+             {{ 'register.trading' | translate }}
             </mat-slide-toggle>
           </div>
           <div>
             <mat-slide-toggle formControlName="viewOther">
-              Allow other to view activity
+              {{ 'register.activity' | translate }}
             </mat-slide-toggle>
           </div>
           <div class="buttonDiv">
@@ -64,7 +84,7 @@
               type="submit"
               [disabled]="!registerForm.valid"
             >
-              Register
+              {{ 'register.title' | translate }}
             </button>
           </div>
         </form>

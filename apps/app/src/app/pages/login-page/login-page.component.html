@@ -9,22 +9,23 @@
             <mat-form-field>
               <mat-label>{{'login.form.loginLabel' | translate}}</mat-label>
               <input matInput formControlName="login">
-              <mat-error *ngIf="login?.errors?.['email']">Login must be an email</mat-error>
-              <mat-error *ngIf="login?.errors?.['required']">Login is required</mat-error>
+              <mat-error *ngIf="login?.errors?.['email']">{{'login.error' | translate}}</mat-error>
+              <mat-error *ngIf="login?.errors?.['required']">{{'login.error' | translate}}</mat-error>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
-              <mat-label>Password</mat-label>
+              <mat-label></mat-label>
               <input matInput type="password" formControlName="password">
-              <mat-error>Password is required</mat-error>
+              <mat-error>{{'login.error' | translate}}</mat-error>
             </mat-form-field>
           </div>
           <div class="buttonDiv">
             <button mat-raised-button color="primary" type="submit"
-                    [disabled]="!loginForm.valid">Login</button>
+                    [disabled]="!loginForm.valid">{{'login.title' | translate}}</button>
             <button mat-raised-button color="accent" color="primary" (click)="goToRegister()">
-            Register</button>
+              {{'login.register' | translate}}
+            </button>
           </div>
         </form>
       </mat-card-content>

@@ -1,16 +1,24 @@
 export const en = {
   login: {
+    register: 'Register',
     title: 'Login',
     hello: 'Hello {{name}}',
+    error: 'obligatoire',
     form: {
       loginLabel: 'Login',
     },
   },
   register: {
+    mdp: 'Password',
     title: 'Register',
     hello: 'Hello',
     name: 'Name',
     firstname: 'Firstname',
+    email: 'Email',
+    error: 'required',
+    trading: 'Allow trading',
+    activity: 'allow others to see my activity',
+    bio: 'Bio',
   },
   home: {
     title: 'Welcome',
