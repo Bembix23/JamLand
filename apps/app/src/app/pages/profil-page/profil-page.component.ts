@@ -23,7 +23,6 @@ import {
   uploadBytes,
 } from '@angular/fire/storage';
 
-
 @Component({
   selector: 'app-profil-page',
   standalone: true,
@@ -40,9 +39,6 @@ import {
   templateUrl: './profil-page.component.html',
   styleUrls: ['./profil-page.component.scss'],
 })
-
-
-
 
 export class ProfilPageComponent {
   // infoUser$: Observable<Info>;
