@@ -1,4 +1,4 @@
-<mat-toolbar id="footer">
+<mat-toolbar id="footer" *ngIf="isLoggedIn$ | async">
   <div class="footer">
     <!-- <div class="placeholder">&nbsp;</div> -->
     <div class="logo1" routerLink="/">

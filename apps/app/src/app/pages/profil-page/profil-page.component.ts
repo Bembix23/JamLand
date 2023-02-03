@@ -22,7 +22,7 @@ import {
   Storage,
   uploadBytes,
 } from '@angular/fire/storage';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profil-page',
@@ -40,9 +40,6 @@ import {
   templateUrl: './profil-page.component.html',
   styleUrls: ['./profil-page.component.scss'],
 })
-
-
-
 
 export class ProfilPageComponent {
   // infoUser$: Observable<Info>;
@@ -70,6 +67,7 @@ private filePreview!: ElementRef;
     private readonly authService: AuthService,
     private readonly auth: Auth,
     private readonly storage: Storage,
+    private readonly router: Router,
   ) {
     this.authService.user$
       .pipe(
@@ -112,6 +110,7 @@ private filePreview!: ElementRef;
   }
   logout() {
     this.auth.signOut();
+    this.router.navigate(['home']);
   }
   takePhoto() {
     this.trigger$.next();
