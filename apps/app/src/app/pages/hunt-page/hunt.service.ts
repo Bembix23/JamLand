@@ -57,6 +57,7 @@ export class HuntService {
     .pipe(
       catchError(() => {
         this.displayFailedPopup();
+        console.log('send pokemon fail')
         return NEVER;
       }),
       take(1)
@@ -81,6 +82,7 @@ export class HuntService {
     .pipe(
       catchError(() => {
         this.displayFailedPopup();
+        console.log('update timer fail')
         return NEVER;
       }),
       take(1)

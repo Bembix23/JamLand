@@ -69,6 +69,15 @@ export class AuthService {
       .subscribe(() => {
         this.router.navigateByUrl('/');
       });
+      const item = doc(this.firestore, `timers/${this.auth?.currentUser?.uid}`);
+      return setDoc(item, {
+      energie: 1,
+      pokeball: 1,
+      superball: 1,
+      hyperball: 1,
+      masterball: 1,
+    })
+
   }
 
   updateInfo (

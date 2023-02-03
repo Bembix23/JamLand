@@ -35,6 +35,14 @@ const defaultEnergie = {
     next: ''
 }
 
+const defaultTimers = {
+  energie: 1,
+  pokeball: 1,
+  superball: 1,
+  hyperball: 1,
+  masterball: 1,
+}
+
 @Component({
   selector: 'app-hunt-page',
   standalone: true,
@@ -51,7 +59,7 @@ export class HuntPageComponent {
   allPokemons: Pokemon[] = []
   pokemonHunt: Pokemon | null | undefined
   huntResult: string | null | undefined
-  timers: Timers | undefined;
+  timers: Timers = defaultTimers;
   energieCount: Counter = defaultEnergie;
   pokeballCount: Pokeball = defaultPokeball;
 
@@ -172,8 +180,8 @@ export class HuntPageComponent {
     if (this.pokeballCount) {
       if (this.pokeballCount[type as keyof Pokeball]?.number === 10 && this.timers?.pokeball) {
         time = Date.now() - 9 * 450000
-      } else if (this.timers?.pokeball) {
-        time = this.timers?.pokeball + 450000
+      } else if (this.timers[type as keyof  Timers]) {
+        time = this.timers[type as keyof  Timers] + 450000
       }    
     }
     this.huntServices.updateTimers(time, type)
