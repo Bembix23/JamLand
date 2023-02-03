@@ -15,7 +15,7 @@ import { Auth } from '@angular/fire/auth';
 interface ApiPokemon {
   id: string;
   name: string;
-  image_url: string;
+  image: string;
 }
 
 
@@ -45,6 +45,7 @@ export class HuntService {
           pokemons: response.map((p) => ({
             id: p.id,
             name: p.name,
+            image_url: p.image
           })),
         }))
       );

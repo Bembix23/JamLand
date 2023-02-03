@@ -6,6 +6,13 @@
       <mat-card-content>
         <p>{{ this.huntResult }}</p>
         <p>{{ this.pokemonHunt?.name }}</p>
+        <div
+          *ngIf="this.pokemonHunt"
+          class="avatar rounded-circle shadow-sm mx-auto overflow-x-hidden overflow-y-hidden sq-2"
+        >
+          <img [src]="this.pokemonHunt.image_url" alt="logo" class="h-100" />
+        </div>
+
         <div *ngIf="!this.pokemonHunt" class="hunt-button">
           <button *ngIf="this.energieCount?.number" mat-raised-button (click)="hunt()">Hunt</button>
           <p>{{ this.energieCount.number }} / 10</p>
