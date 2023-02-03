@@ -29,21 +29,26 @@ export class AppComponent {
   version = 'Prime';
   @HostBinding('class') class = 'app';
   isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
+  islogged: boolean | undefined;
+
 
 
   constructor(
     private readonly translate: TranslateService,
     private readonly authService: AuthService,
     private readonly router: Router
-    ) {
+  ) {
     translate.setTranslation('en', en);
     translate.setTranslation('fr', fr);
     translate.setDefaultLang('fr');
 
     translate.use('fr');
 
-    if (this.isLoggedIn$) {
-      this.router.navigateByUrl('/');
-    }
+    this.isLoggedIn$.subscribe(value => {
+      if (!value && ( this.router.url !== ('/login' || 'register'))) {
+        console.log('ici')
+        console.log(this.router.url);
+        this.router.navigate(['home']);      }
+    })
   }
 }

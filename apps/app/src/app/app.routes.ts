@@ -10,7 +10,7 @@ export const appRoutes: Route[] = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'profil', component: ProfilPageComponent },
-  { path: 'login', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent },
   { path: 'pokedex', component: PokemonsPageComponent },
   { path: 'hunt', component: HuntPageComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/pokedex' },
