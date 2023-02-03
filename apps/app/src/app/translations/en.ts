@@ -1,7 +1,9 @@
 export const en = {
   login: {
+    register: 'Register',
     title: 'Login',
     hello: 'Hello {{name}}',
+    error: 'obligatoire',
     form: {
       loginLabel: 'Login',
     },

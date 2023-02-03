@@ -1,6 +1,8 @@
 export const fr = {
   login: {
     title: 'Connexion',
+    register: 'S\'enregistrer',
+    error: 'obligatoire',
     form: {
       loginLabel: 'Identifiant',
     },
@@ -18,6 +20,7 @@ export const fr = {
     email: 'Email',
     bio: 'Bio',
     name: 'Nom',
+    
     
   },
   home: {
