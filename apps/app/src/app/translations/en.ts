@@ -9,6 +9,8 @@ export const en = {
   register: {
     title: 'Register',
     hello: 'Hello',
+    name: 'Name',
+    firstname: 'Firstname',
   },
   home: {
     title: 'Welcome',
@@ -17,9 +19,21 @@ export const en = {
     title:'Hunt pokemon',
   },
   profil: {
-    title:'My profile',
+    title: 'My profil',
+    mdp: 'Password',
     form: {
       emailLabel: 'My Email',
+      
     },
+    logout: 'logout',
+    profilm: 'My profil',
+    name: 'Name',
+    error: 'required',
+    firstname: 'Firstname',
+    trading: 'Allow trading',
+    activity: 'allow others to see my activity',
+  },
+  bouton:{
+    bouton: 'Click here',
   },
 };
